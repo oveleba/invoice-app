@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_row(form.customer) }}
+    {{ form_row(form.supplier) }}
+    {{ form_row(form.issueDate) }}
+    {{ form_row(form.dueDate) }}
+    {{ form_row(form.taxDate) }}
+    {{ form_row(form.paymentMethod) }}
+    {{ form_label(form.items) }}
+
+    <div id="invoice_items" data-prototype="{{ form_widget(form.items.vars.prototype)|e('html_attr') }}" data-index="{{ form.items|length }}">
+        {% for item in form.items %}
+            <div class="item-row">
+                {{ form_row(item) }}
+                <button type="button" class="btn btn-danger remove-item">-</button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="button" id="add-item" class="btn btn-primary">+</button>
+    <br>
+    <br>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    {{ form_end(form) }}
+    <script src="{{ asset('js/form.js') }}"></script>
+{% endblock %}

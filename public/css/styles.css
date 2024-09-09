@@ -1,0 +1,27 @@
+.actor-image {
+    height: 300px;
+    width: auto;
+    object-fit: fill
+}
+
+@media (max-width: 576px) {
+    .actor-image {
+        height: auto;
+        width: auto;
+        object-fit: none;
+    }
+}
+
+.actor-detail-image {
+    height: 300px;
+    width: 200px;
+    object-fit: fill
+}
+
+@media (max-width: 576px) {
+    .actor-detail-image {
+        height: auto;
+        width: auto;
+        object-fit: none;
+    }
+}

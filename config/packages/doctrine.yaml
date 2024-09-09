@@ -1,0 +1,27 @@
+doctrine:
+  dbal:
+    dbname: invoice-app
+    host: localhost
+    user: veleba
+    password: veleba
+    driver: pdo_mysql
+
+    # IMPORTANT: You MUST configure your server version,
+    # either here or in the DATABASE_URL env var (see .env file)
+    #server_version: '16'
+
+    profiling_collect_backtrace: '%kernel.debug%'
+    use_savepoints: true
+
+  orm:
+    auto_mapping: true
+    mappings:
+      App:
+        is_bundle: false
+        type: attribute
+        dir: '%kernel.project_dir%/src/Entity'
+        prefix: 'App\Entity'
+        alias: App
+    dql:
+      string_functions:
+        YEAR: DoctrineExtensions\Query\Mysql\Year
